@@ -3,15 +3,22 @@
     <input v-model="message" />
     <button v-on:click="reverseMessage">Reverse Message</button>
     <ul>
-      <li v-for="todo in todos" :key="todo.id">
-        {{ todo.text }}
-      </li>
+      <todo-item
+        v-for="todo in todos"
+        v-bind:key="todo.id"
+        v-bind:item="todo"
+      />
     </ul>
   </div>
 </template>
 
 <script>
+import TodoItem from './TodoItem'
+
 export default {
+  components: {
+    'todo-item': TodoItem,
+  },
   data() {
     return {
       message: 'Hello Vue.js!',
