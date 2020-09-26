@@ -1,14 +1,34 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div>
+    <input v-model="message" />
+    <button v-on:click="reverseMessage">Reverse Message</button>
+    <ul>
+      <li v-for="todo in todos" :key="todo.id">
+        {{ todo.text }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String,
+  data() {
+    return {
+      message: 'Hello Vue.js!',
+      todos: [
+        { id: '1', text: 'Learn JavaScript' },
+        { id: '2', text: 'Learn Vue' },
+        { id: '3', text: 'Build something awesome' },
+      ],
+    }
+  },
+  methods: {
+    reverseMessage() {
+      this.message = this.message
+        .split('')
+        .reverse()
+        .join('')
+    },
   },
 }
 </script>
@@ -21,10 +41,6 @@ h3 {
 ul {
   list-style-type: none;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
 a {
   color: #42b983;
