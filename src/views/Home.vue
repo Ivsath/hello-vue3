@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <input v-model="message" />
     <button v-on:click="reverseMessage">Reverse Message</button>
     <ul>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TodoItem from './TodoItem'
+import TodoItem from '../components/TodoItem'
 
 export default {
   components: {
